@@ -22,6 +22,7 @@ interface FavoriteMoviesDao {
     @Delete
     fun deleteSelectedFavoriteMovie(favoriteMoviesEntity: FavoriteMoviesEntity)
 
+
     @Query("SELECT column_movie_id FROM favorite_movies_table WHERE column_movie_id = :movieId")
     fun checkIfMovieIsFavorite(movieId: Int): LiveData<Int>
 }
