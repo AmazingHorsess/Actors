@@ -1,0 +1,27 @@
+package com.example.actors.data.datasource.database.dao
+
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.example.actors.data.datasource.database.entity.FavoriteMoviesEntity
+@Dao
+interface FavoriteMoviesDao {
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addMovieToFavorites(favoriteMoviesEntity: FavoriteMoviesEntity)
+
+    @Query("SELECT * FROM favorite_movies_table")
+    fun getAllFavoriteMovies(): LiveData<List<FavoriteMoviesEntity>>
+
+    @Query("DELETE FROM favorite_movies_table")
+    fun deleteAllFavoriteMovies()
+
+    @Delete
+    fun deleteSelectedFavoriteMovie(favoriteMoviesEntity: FavoriteMoviesEntity)
+
+    @Query("SELECT column_movie_id FROM favorite_movies_table WHERE column_movie_id = :movieId")
+    fun checkIfMovieIsFavorite(movieId: Int): LiveData<Int>
+}
