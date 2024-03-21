@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @Composable
 fun HomeSnackbar(
@@ -27,7 +27,7 @@ fun HomeSnackbar(
 @Preview
 @Composable
 fun HomeSnackbarPreview(){
-    ActorsTheme {
+    TmdbTheme {
         HomeSnackbar(hostState = SnackbarHostState())
 
     }

@@ -1,11 +1,14 @@
 package com.example.actors.ui.screens.movieDetails
 
-import com.example.actors.data.model.ActorDetail
+import com.example.actors.data.datasource.network.retrofit.model.ActorDetailsResponse
+import com.example.actors.data.datasource.network.retrofit.service.NetworkResult
 import com.example.actors.data.model.Cast
 import com.example.actors.data.model.Movie
 import com.example.actors.data.model.MovieDetail
 import com.example.actors.data.model.MovieProvider
 import com.example.actors.data.model.Trailer
+import kotlinx.coroutines.flow.Flow
+import retrofit2.Response
 
 data class MovieDetailsUIState(
     val movieData: MovieDetail?,
@@ -21,7 +24,7 @@ data class MovieDetailsUIState(
  * Models the UI state for the SheetContentActorDetails modal sheet.
  */
 data class ActorsSheetUIState(
-    val selectedActorDetails: ActorDetail? = null
+    val selectedActorDetails: Flow<NetworkResult<Response<ActorDetailsResponse>>>? = null
 )
 
 data class MovieSheetUIState(

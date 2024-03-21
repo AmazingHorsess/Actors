@@ -18,7 +18,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 
 @Composable
@@ -82,7 +82,7 @@ fun AnimatedSearch(){
 @Composable
 @Preview
 fun AnimateSearchPreview(){
-    ActorsTheme {
+    TmdbTheme {
         AnimatedSearch()
 
     }

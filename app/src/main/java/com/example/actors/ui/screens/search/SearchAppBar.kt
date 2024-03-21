@@ -39,7 +39,7 @@ import com.example.actors.ui.components.AppDivider
 import com.example.actors.ui.components.KeyboardState
 import com.example.actors.ui.components.closeKeyboardAndNavigateUp
 import com.example.actors.ui.components.getCurrentKeyboardState
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -168,7 +168,7 @@ private val createLaunchSpeechRecognitionIntent = Intent(
 @Preview
 @Composable
 private fun SearchAppBarLightPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         SearchAppBar(
             navigateUp = { },
             onQueryChange = { },
@@ -181,7 +181,7 @@ private fun SearchAppBarLightPreview() {
 @Preview
 @Composable
 private fun SearchAppBarDarkPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         SearchAppBar(
             navigateUp = { },
             onQueryChange = { },

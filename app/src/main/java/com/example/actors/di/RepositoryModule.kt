@@ -1,6 +1,6 @@
 package com.example.actors.di
 
-import com.example.actors.data.repository.actor.ActorRepositoryImpl
+import com.example.actors.data.repository.actor.ActorRepositoryRetrofitImpl
 import com.example.actors.data.repository.movie.MovieRepositoryImpl
 import com.example.actors.data.repository.movie.MovieTrailerRepositoryImpl
 import com.example.actors.data.repository.search.SearchRepositoryImpl
@@ -18,8 +18,7 @@ import dagger.hilt.android.components.ViewModelComponent
 abstract class RepositoryModule {
 
     @Binds
-    abstract fun bindActorRepository(impl: ActorRepositoryImpl): ActorRepository
-
+    abstract fun bindRetrofitActorRepository(impl: ActorRepositoryRetrofitImpl):ActorRepository
     @Binds
     abstract fun bindMoviesRepository(impl: MovieRepositoryImpl): MovieRepository
 

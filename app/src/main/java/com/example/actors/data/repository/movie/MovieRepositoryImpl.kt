@@ -12,6 +12,8 @@ import com.example.actors.data.model.PagedResponse
 import com.example.actors.data.model.Trailer
 import com.example.actors.domain.repository.movies.MovieRepository
 import com.example.actors.domain.repository.movies.MovieTrailerRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -29,6 +31,11 @@ class MovieRepositoryImpl @Inject constructor(
         return stockJsonDataSource.getSelectedMovieData(movieId)
     }
 
+    override suspend fun getUpcomingMovie(): List<Movie> {
+        return stockJsonDataSource.getUpcomingMoviesData()
+    }
+
+
     override suspend fun getMovieTrailer(movieId: Int): List<Trailer> {
         return stockJsonDataSource.getMovieTrailersData(movieId)
     }
@@ -45,8 +52,10 @@ class MovieRepositoryImpl @Inject constructor(
         return stockJsonDataSource.getMovieCastByIdData(movieId)
     }
 
-    override fun getAllFavoriteMovies(): LiveData<List<FavoriteMovie>> {
-        return databaseDataSource.getAllFavoriteMovies()
+    override fun getAllFavoriteMovies(): Flow<List<FavoriteMovie>> {
+        return flow {
+            databaseDataSource.getAllFavoriteMovies()
+        }
     }
 
 

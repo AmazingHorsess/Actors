@@ -3,10 +3,10 @@ package com.example.actors.ui.screens.actorDetails
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.SavedStateHandle
+import com.example.actors.data.datasource.network.retrofit.service.NetworkResult
 import com.example.actors.data.model.ActorDetail
 import com.example.actors.data.model.toFavoriteActor
 import com.example.actors.domain.repository.actor.ActorRepository
@@ -14,6 +14,7 @@ import com.example.actors.domain.repository.movies.MovieRepository
 import com.example.actors.domain.useCase.RemoveActorsFromFavoritesUseCase
 import com.example.actors.ui.navigation.AppDestinations
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import java.io.IOException
 import javax.inject.Inject
@@ -34,26 +35,47 @@ class ActorDetailsViewModel @Inject constructor(
     var sheetUIState by mutableStateOf(ActorDetailsSheetUIState())
         private set
 
-    val isFavoriteMovie: LiveData<Int> = actorRepository.isFavoriteActor(actorId)
+    val isFavoriteMovie: Flow<Int> = actorRepository.isFavoriteActor(actorId)
+    val savedStateHandle = savedStateHandle
 
-    private suspend fun startFetchingDetails() {
-        detailUIState = ActorDetailsUIState(isFetchingDetails = true, actorData = null)
-        val actorData = actorRepository.getSelectedActorData(actorId)
-        val castData = actorRepository.getCastData(actorId)
-        detailUIState = ActorDetailsUIState(
-            castList = castData,
-            actorData = actorData,
-            isFetchingDetails = false
-        )
+    private suspend fun s(){
+        viewModelScope.launch {
+            savedStateHandle.get<String>("actorId")?.let {actorId->
+                if (actorId.isNotEmpty()){
+                    actorRepository.getSelectedActorData(actorId.toInt()).collect{
+                        when(it){
+                            is NetworkResult.Success ->{
+                                it.value.body()?.let {response->
+                                    detailUIState = ActorDetailsUIState(
+                                        actorData = response
+
+                                    )
+                                }
+                            }
+
+                            is NetworkResult.Failure ->{
+
+                            }
+
+                            is NetworkResult.Loading -> {
+
+
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        }
     }
+
+
 
     init {
         viewModelScope.launch {
-            try {
-                startFetchingDetails()
-            } catch (e: IOException) {
+                s()
 
-            }
         }
     }
 
@@ -80,28 +102,28 @@ class ActorDetailsViewModel @Inject constructor(
 
     fun addActorToFavorites() {
         viewModelScope.launch {
-            val actor: ActorDetail? = detailUIState.actorData
-            if (actor != null) {
-                actorRepository.addActorsToFavorite(
-                    actor.toFavoriteActor()
-                )
-            } else {
-
-            }
+//            val actor: ActorDetail? = detailUIState.actorData
+//            if (actor != null) {
+//                actorRepository.addActorsToFavorite(
+//                    actor.toFavoriteActor()
+//                )
+//            } else {
+//
+//            }
         }
     }
 
     fun removeActorFromFavorites() {
-        viewModelScope.launch {
-            val actor: ActorDetail? = detailUIState.actorData
-            if (actor != null) {
-                removeActorsFromFavoritesUseCase(
-                    actor.toFavoriteActor()
-                )
-            } else {
-
-            }
-        }
+//        viewModelScope.launch {
+//            val actor: ActorDetail? = detailUIState.actorData
+//            if (actor != null) {
+//                removeActorsFromFavoritesUseCase(
+//                    actor.toFavoriteActor()
+//                )
+//            } else {
+//
+//            }
+//        }
     }
 }
 

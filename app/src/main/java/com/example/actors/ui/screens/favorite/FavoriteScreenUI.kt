@@ -25,7 +25,7 @@ import com.example.actors.ui.components.TabItem
 import com.example.actors.ui.components.TabsContainer
 import com.example.actors.ui.screens.favorite.tabs.FavoriteActorsTabContent
 import com.example.actors.ui.screens.favorite.tabs.FavoriteMoviesTabContent
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -114,7 +114,7 @@ private fun FeatureComingSoonTextUI() {
 @Preview
 @Composable
 private fun FavoriteScreenUILightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         FavoriteScreenUI(
             favoriteMovies = emptyList(),
             navigateToSelectedMovie = {},
@@ -130,7 +130,7 @@ private fun FavoriteScreenUILightPreview() {
 @Preview
 @Composable
 private fun FavoriteScreenUIDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         FavoriteScreenUI(
             favoriteMovies = emptyList(),
             navigateToSelectedMovie = {},

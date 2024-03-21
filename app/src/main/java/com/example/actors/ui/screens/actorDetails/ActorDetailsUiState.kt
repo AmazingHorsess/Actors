@@ -1,12 +1,14 @@
 package com.example.actors.ui.screens.actorDetails
 
-import com.example.actors.data.model.ActorDetail
+import com.example.actors.data.datasource.network.retrofit.model.ActorDetailsResponse
 import com.example.actors.data.model.Movie
 import com.example.actors.data.model.MovieDetail
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 
 data class ActorDetailsUIState(
-    val castList: List<Movie> = listOf(),
-    val actorData: ActorDetail? = null,
+    val castList: Flow<List<Movie>> = emptyFlow(),
+    val actorData: ActorDetailsResponse? = null ,
     val isFetchingDetails: Boolean = false,
 )
 

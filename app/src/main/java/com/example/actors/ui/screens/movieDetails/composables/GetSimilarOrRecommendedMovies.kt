@@ -17,7 +17,7 @@ import com.example.actors.data.datasource.fake.fakeMovieList
 import com.example.actors.data.model.BottomSheetType
 import com.example.actors.data.model.Movie
 import com.example.actors.ui.components.LoadNetworkImage
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 import kotlinx.coroutines.Job
 
 @Composable
@@ -55,7 +55,7 @@ fun GetSimilarOrRecommendedMovies(
 @Composable
 @Preview(showBackground = true)
 fun GetSimilarOrRecommendedMoviesPreviewLight(){
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         GetSimilarOrRecommendedMovies(
             movieList = fakeMovieList(),
             openMovieDetailBottomSheet = {  Job() },
@@ -70,7 +70,7 @@ fun GetSimilarOrRecommendedMoviesPreviewLight(){
 @Composable
 @Preview(showBackground = true)
 fun GetSimilarOrRecommendedMoviesPreviewDark(){
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         GetSimilarOrRecommendedMovies(
             movieList = fakeMovieList(),
             openMovieDetailBottomSheet = {  Job() },

@@ -1,14 +1,18 @@
 package com.example.actors.data.model
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Trailer(
-    val iso_639_1: String,
-    val iso_3166_1: String,
-    val name: String,
-    val key: String,
-    val site: String,
-    val size: Int,
-    val type: String,
-    val official: Boolean,
-    val published_at: String,
-    val id: String
+    @SerialName("iso_639_1") val iso_639_1: String,
+    @SerialName("iso_3166_1") val iso_3166_1: String,
+    @SerialName("name") val name: String,
+    @SerialName("key") val key: String,
+    @SerialName("site") val site: String,
+    @SerialName("size") val size: Int,
+    @SerialName("type") val type: String,
+    @SerialName("official") val official: Boolean,
+    @SerialName("published_at") val published_at: String,
+    @SerialName("id") val id: String
 )

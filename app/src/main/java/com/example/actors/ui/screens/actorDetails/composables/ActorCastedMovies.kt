@@ -23,6 +23,7 @@ import com.example.actors.ui.components.CategoryTitle
 import com.example.actors.ui.components.LoadNetworkImage
 import com.example.actors.ui.screens.actorDetails.ActorDetailsUIState
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.Flow
 
 @Composable
 internal fun ActorCastedMovies(
@@ -31,43 +32,43 @@ internal fun ActorCastedMovies(
     getSelectedMovieDetails: (Int) -> Unit
 
 ){
-    val cast: List<Movie> = detailUiState.castList
-
-    Row (
-        verticalAlignment = Alignment.CenterVertically
-    ){
-        Image(
-            painter = painterResource(id = R.drawable.ic_movie_cast),
-            contentDescription = stringResource(id = R.string.cd_cast_icon),
-            colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSurface),
-            alpha = 0.5f,
-            modifier = Modifier
-                .padding(start = 12.dp)
-                .size(36.dp)
-        )
-        
-        CategoryTitle(title = stringResource(id = R.string.cast_movie_title))
-
-    }
-    LazyRow(
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        contentPadding = PaddingValues(16.dp)
-    ) {
-        items(
-            items = cast,
-            key = { it.movieId }
-        ) { movie ->
-            LoadNetworkImage(
-                imageUrl = movie.posterPathUrl,
-                contentDescription = stringResource(R.string.cd_movie_poster),
-                shape = MaterialTheme.shapes.medium,
-                modifier = Modifier
-                    .size(100.dp, 150.dp)
-                    .clickable {
-                        getSelectedMovieDetails(movie.movieId)
-                        openActorDetailsBottomSheet()
-                    }
-            )
-        }
-    }
+//    val cast: Flow<List<Movie>> = detailUiState.castList
+//
+//    Row (
+//        verticalAlignment = Alignment.CenterVertically
+//    ){
+//        Image(
+//            painter = painterResource(id = R.drawable.ic_movie_cast),
+//            contentDescription = stringResource(id = R.string.cd_cast_icon),
+//            colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSurface),
+//            alpha = 0.5f,
+//            modifier = Modifier
+//                .padding(start = 12.dp)
+//                .size(36.dp)
+//        )
+//
+//        CategoryTitle(title = stringResource(id = R.string.cast_movie_title))
+//
+//    }
+//    LazyRow(
+//        horizontalArrangement = Arrangement.spacedBy(12.dp),
+//        contentPadding = PaddingValues(16.dp)
+//    ) {
+//        items(
+//            items = cast,
+//            key = { it.movieId }
+//        ) { movie ->
+//            LoadNetworkImage(
+//                imageUrl = movie.posterPathUrl,
+//                contentDescription = stringResource(R.string.cd_movie_poster),
+//                shape = MaterialTheme.shapes.medium,
+//                modifier = Modifier
+//                    .size(100.dp, 150.dp)
+//                    .clickable {
+//                        getSelectedMovieDetails(movie.movieId)
+//                        openActorDetailsBottomSheet()
+//                    }
+//            )
+//        }
+//    }
 }

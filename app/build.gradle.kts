@@ -2,7 +2,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
-
+    alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.org.jetbrains.kotlin.kapt)
     alias(libs.plugins.com.google.dagger.hilt.android)
 
@@ -11,6 +11,8 @@ plugins {
 android {
     namespace = "com.example.actors"
     compileSdk = 34
+    android.testOptions.unitTests.isIncludeAndroidResources = true
+
 
     defaultConfig {
         applicationId = "com.example.actors"
@@ -24,6 +26,7 @@ android {
             useSupportLibrary = true
         }
     }
+    android.testOptions.unitTests.isIncludeAndroidResources = true
 
     buildTypes {
         release {
@@ -48,26 +51,44 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
     packaging {
+
+
         resources {
+            merges.add("META-INF/gradle/incremental.annotation.processors")
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 }
 
 dependencies {
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.5.0")
     implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
 
     implementation("io.github.ilyapavlovskii:youtubeplayer-compose:2024.02.25")
     implementation("androidx.media3:media3-exoplayer:1.2.1")
     implementation("androidx.media3:media3-exoplayer-dash:1.2.1")
     implementation("androidx.media3:media3-ui:1.2.1")
+    implementation(project(":core:data"))
+    implementation(project(":core:designsystem"))
+    androidTestImplementation(project(":core:testing"))
     val lifecycle_version = "2.7.0"
 
 
     // Saved state module for ViewModel
     implementation(libs.com.google.android.material)
     implementation(libs.androidx.constraintlayout.constraintlayout.compose)
+
+
+
+    implementation(libs.kotlinx.serialization)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlinx.serialization.converter)
 
 
     implementation(libs.androidx.lifecycle.lifecycle.runtime.ktx)
@@ -105,8 +126,8 @@ dependencies {
     kapt(libs.androidx.room.room.compiler)
 
     // hilt
-    implementation(libs.com.google.dagger.hilt.android)
     implementation(libs.androidx.hilt.hilt.navigation.compose)
+    implementation(libs.com.google.dagger.hilt.android)
     kapt(libs.com.google.dagger.hilt.android.compiler)
 
     //Navigation

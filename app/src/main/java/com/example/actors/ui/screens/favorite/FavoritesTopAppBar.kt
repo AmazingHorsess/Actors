@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.actors.R
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 
 @Composable
@@ -60,7 +60,7 @@ fun FavoritesTopAppBar(
 @Preview(showBackground = true)
 @Composable
 private fun FavoritesTopAppBarLightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         FavoritesTopAppBar { }
     }
 }
@@ -68,7 +68,7 @@ private fun FavoritesTopAppBarLightPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFF211a18)
 @Composable
 private fun FavoritesTopAppBarDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         FavoritesTopAppBar { }
     }
 }

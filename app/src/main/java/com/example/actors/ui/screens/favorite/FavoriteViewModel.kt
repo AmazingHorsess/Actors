@@ -10,6 +10,7 @@ import com.example.actors.domain.repository.movies.MovieRepository
 import com.example.actors.domain.useCase.RemoveActorsFromFavoritesUseCase
 import com.example.actors.domain.useCase.RemoveMoviesFromFavoritesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import okhttp3.internal.notifyAll
 import javax.inject.Inject
@@ -21,8 +22,8 @@ class FavoriteViewModel @Inject constructor(
     private val removeMovieFromFavoritesUseCase: RemoveMoviesFromFavoritesUseCase,
     private val removeActorsFromFavoritesUseCase: RemoveActorsFromFavoritesUseCase
 ): ViewModel(){
-    val favoriteMovies: LiveData<List<FavoriteMovie>> = movieRepository.getAllFavoriteMovies()
-    val favoriteActors: LiveData<List<FavoriteActor>> = actorRepository.getAllFavoriteActors()
+    val favoriteMovies: Flow<List<FavoriteMovie>> = movieRepository.getAllFavoriteMovies()
+    val favoriteActors: Flow<List<FavoriteActor>> = actorRepository.getAllFavoriteActors()
 
     fun removeMovieFromFavorites(movie: FavoriteMovie){
         viewModelScope.launch {

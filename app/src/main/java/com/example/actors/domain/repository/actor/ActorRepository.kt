@@ -1,28 +1,42 @@
 package com.example.actors.domain.repository.actor
 
-import androidx.lifecycle.LiveData
-import com.example.actors.data.model.Actor
-import com.example.actors.data.model.ActorDetail
+
+import androidx.paging.PagingData
+import com.example.actors.data.datasource.network.retrofit.model.ActorCastResponse
+import com.example.actors.data.datasource.network.retrofit.model.ActorDetailsResponse
+import com.example.actors.data.datasource.network.retrofit.model.ActorItem
+import com.example.actors.data.datasource.network.retrofit.model.PopularActorResponse
+import com.example.actors.data.datasource.network.retrofit.model.TrendingActorResponse
+import com.example.actors.data.datasource.network.retrofit.service.NetworkResult
+
+import com.example.actors.data.model.Cast
 import com.example.actors.data.model.FavoriteActor
-import com.example.actors.data.model.Movie
+import kotlinx.coroutines.flow.Flow
+import retrofit2.Response
 
 interface ActorRepository {
 
-    suspend fun getPopularActorsData():List<Actor>
+    //paging
+    suspend fun getPopularActorsPagingData(): Flow<PagingData<ActorItem>>
 
-    suspend fun getTrendingActorsData(): List<Actor>
 
-    suspend fun getUpcomingMoviesData(): List<Movie>
+    suspend fun getTrendingActorsPagingData(): Flow<PagingData<ActorItem>>
 
-    suspend fun getSelectedActorData(actorInt: Int): ActorDetail
+    //non-paging
 
-    suspend fun getCastData(actorInt: Int): List<Movie>
+    suspend fun popularActorsList(page:Int): Flow<NetworkResult<PopularActorResponse>>
+    suspend fun trendingActorsList(page:Int): Flow<NetworkResult<TrendingActorResponse>>
 
-    fun isFavoriteActor(actorId: Int): LiveData<Int>
+
+    suspend fun getSelectedActorData(actorId: Int): Flow<NetworkResult<Response<ActorDetailsResponse>>>
+
+    suspend fun getCastData(actorId: Int): Flow<NetworkResult<Response<ActorCastResponse>>>
+
+    fun isFavoriteActor(actorId: Int): Flow<Int>
 
     suspend fun addActorsToFavorite(favoriteActor: FavoriteActor)
 
     suspend fun deleteSelectedFavoriteActor(favoriteActor: FavoriteActor)
 
-    fun getAllFavoriteActors(): LiveData<List<FavoriteActor>>
+    fun getAllFavoriteActors(): Flow<List<FavoriteActor>>
 }

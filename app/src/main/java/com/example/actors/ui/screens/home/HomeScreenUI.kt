@@ -27,11 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.actors.data.datasource.fake.fakeActorsList
-import com.example.actors.data.datasource.fake.fakeMovieDetail
-import com.example.actors.data.datasource.fake.fakeMovieList
 import com.example.actors.ui.components.ApiKeyMissingShowSnackbar
 import com.example.actors.ui.components.AppDivider
 import com.example.actors.ui.components.IfOfflineShowSnackbar
@@ -45,8 +41,6 @@ import com.example.actors.ui.screens.home.tabs.MoviesTabContent
 import com.example.actors.ui.screens.home.tabs.TvShowsTabContent
 
 import com.example.actors.ui.screens.search.SearchType
-import com.example.actors.ui.theme.ActorsTheme
-import kotlinx.coroutines.flow.flow
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -212,52 +206,52 @@ private fun  HomeScreenUi(
     }
 
 }
-@Preview(showBackground = true)
-@Composable
-private fun HomeScreenUILightPreview() {
-    ActorsTheme(darkTheme = false) {
-        HomeScreenUI(
-            navigateToSelectedActor = {},
-            navigateToSelectedMovie = {},
-            navigateToFavorite = {},
-            navigateToSearch = {},
-            navigateToSearchBySearchType = SearchType.ACTORS,
-            sheetUiState = HomeSheetUIState(fakeMovieDetail),
-            updateHomeSearchType = {} ,
-            navigateToAbout = {},
-            uiState = HomeUIState(
-                popularActorList = fakeActorsList(),
-                trendingActorList = fakeActorsList(),
-                upcomingMoviesList = fakeMovieList(),
-                nowPlayingMoviesList = flow { fakeMovieList() },
-                isFetchingActors = false,
-
-
-            )
-
-        )
-    }
-}
-@Preview(showBackground = true)
-@Composable
-private fun HomeScreenUiDarkPreview() {
-    ActorsTheme(darkTheme = true) {
-        HomeScreenUI(
-            navigateToSelectedActor = {},
-            navigateToSelectedMovie = {},
-            navigateToFavorite = {},
-            navigateToSearch = {},
-            navigateToSearchBySearchType = SearchType.ACTORS,
-            sheetUiState = HomeSheetUIState(fakeMovieDetail),
-            updateHomeSearchType = {} ,
-            navigateToAbout = {},
-            uiState = HomeUIState(
-                popularActorList = fakeActorsList(),
-                trendingActorList = fakeActorsList(),
-                upcomingMoviesList = fakeMovieList(),
-                nowPlayingMoviesList = flow { fakeMovieList() },
-                isFetchingActors = false,
-                ),
-        )
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//private fun HomeScreenUILightPreview() {
+//    ActorsTheme(darkTheme = false) {
+//        HomeScreenUI(
+//            navigateToSelectedActor = {},
+//            navigateToSelectedMovie = {},
+//            navigateToFavorite = {},
+//            navigateToSearch = {},
+//            navigateToSearchBySearchType = SearchType.ACTORS,
+//            sheetUiState = HomeSheetUIState(fakeMovieDetail),
+//            updateHomeSearchType = {} ,
+//            navigateToAbout = {},
+//            uiState = HomeUIState(
+//                popularActorList = fakeActorsList(),
+//                trendingActorList = fakeActorsList(),
+//                upcomingMoviesList = fakeMovieList(),
+//                nowPlayingMoviesList = flow { fakeMovieList() },
+//                isFetchingActors = false,
+//
+//
+//            )
+//
+//        )
+//    }
+//}
+//@Preview(showBackground = true)
+//@Composable
+//private fun HomeScreenUiDarkPreview() {
+//    ActorsTheme(darkTheme = true) {
+//        HomeScreenUI(
+//            navigateToSelectedActor = {},
+//            navigateToSelectedMovie = {},
+//            navigateToFavorite = {},
+//            navigateToSearch = {},
+//            navigateToSearchBySearchType = SearchType.ACTORS,
+//            sheetUiState = HomeSheetUIState(fakeMovieDetail),
+//            updateHomeSearchType = {} ,
+//            navigateToAbout = {},
+//            uiState = HomeUIState(
+//                popularActorList = fakeActorsList(),
+//                trendingActorList = fakeActorsList(),
+//                upcomingMoviesList = fakeMovieList(),
+//                nowPlayingMoviesList = flow { fakeMovieList() },
+//                isFetchingActors = false,
+//                ),
+//        )
+//    }
+//}

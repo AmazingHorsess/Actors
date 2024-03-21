@@ -19,7 +19,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.example.actors.R
@@ -29,7 +28,7 @@ import com.example.actors.data.model.MovieProvider
 import com.example.actors.ui.components.LoadNetworkImage
 import com.example.actors.ui.components.SheetHorizontalSeparator
 import com.example.actors.ui.screens.movieDetails.composables.FloatingAddToFavoritesButton
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @Composable
 fun SheetContentMovieProviders(
@@ -90,7 +89,7 @@ fun Streaming(flatrate: ArrayList<Flatrate>) {
     ) {
         items(flatrate) { flatrate ->
             LoadNetworkImage(
-                imageUrl = flatrate.logo_path,
+                imageUrl = flatrate.logoPath,
                 contentDescription = "",
                 shape = MaterialTheme.shapes.large,
                 showAnimProgress = false,
@@ -125,7 +124,7 @@ private fun HeaderModalSheet() {
 @PreviewLightDark
 @Composable
 fun PreviewHeaderModalSheet(){
-    ActorsTheme {
+    TmdbTheme {
         SheetContentMovieProviders(
             movieProvider = MovieProvider(
                 arrayListOf(Flatrate("", 1, ""))

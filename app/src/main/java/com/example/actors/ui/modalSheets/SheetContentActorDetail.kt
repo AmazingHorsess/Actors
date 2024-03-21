@@ -19,21 +19,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.actors.data.datasource.fake.fakeActorDetail
-import com.example.actors.data.model.Actor
-import com.example.actors.data.model.ActorDetail
+import com.example.actors.data.datasource.network.retrofit.model.ActorDetailsResponse
+import com.example.actors.data.datasource.network.retrofit.service.NetworkResult
 import com.example.actors.ui.components.LoadNetworkImage
 import com.example.actors.ui.components.SheetHorizontalSeparator
 import com.example.actors.ui.screens.actorDetails.composables.ActorInfoHeader
-import com.example.actors.ui.theme.ActorsTheme
+import kotlinx.coroutines.flow.Flow
+import retrofit2.Response
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SheetContentActorDetail(
-    actor: ActorDetail?,
+    actor: Flow<NetworkResult<Response<ActorDetailsResponse>>>?,
     navigateToSelectedActor: (Int) -> Unit
 ) {
     LazyColumn(
@@ -53,22 +52,22 @@ fun SheetContentActorDetail(
                 Spacer(modifier = Modifier.height(8.dp))
                 SheetHorizontalSeparator()
                 Spacer(modifier = Modifier.height(24.dp))
-                ActorProfileImage(
-                    actor,
-                    actor?.profileUrl
-                    , navigateToSelectedActor,
-                )
+               // ActorProfileImage(
+                //    actor,
+                //    actor?.profilePath
+               //     , navigateToSelectedActor,
+              //  )
                 Spacer(modifier = Modifier.height(16.dp))
-                ActorNameText(actor?.actorName.toString())
+               // ActorNameText(actor?.name.toString())
                 Spacer(modifier = Modifier.height(16.dp))
-                ActorInfoHeader(actorData = actor)
+               // ActorInfoHeader(actorData = actor)
                 Spacer(modifier = Modifier.height(8.dp))
 
             }
         }
         item {
             Spacer(modifier = Modifier.height(8.dp))
-            ActorBiographyText(actor?.biography.toString())
+            //ActorBiographyText(actor?.biography.toString())
             Spacer(modifier = Modifier.height(24.dp))
 
         }
@@ -77,7 +76,7 @@ fun SheetContentActorDetail(
 }
 @Composable
 private fun ActorProfileImage(
-    actor: ActorDetail?,
+    actor: ActorDetailsResponse?,
     profileUrl: String?,
     navigateToSelectedActor: (Int) ->Unit,
 ){
@@ -89,7 +88,7 @@ private fun ActorProfileImage(
             .size(120.dp)
             .clickable{
                if (actor != null){
-                   navigateToSelectedActor(actor.actorId)
+                   navigateToSelectedActor(actor.id)
                }
             }
 
@@ -129,26 +128,26 @@ private fun ActorBiographyText(
         fontSize = 16.sp
     )
 }
-@Preview
-@Composable
-private fun SheetContentActorDetailsLightPreview(){
-    ActorsTheme(darkTheme = false) {
-        SheetContentActorDetail(
-            actor = fakeActorDetail,
-            navigateToSelectedActor = {}
-        )
-
-
-    }
-}
-@Preview
-@Composable
-private fun SheetContentActorDetailsDarkPreview(){
-    ActorsTheme(darkTheme = true) {
-        SheetContentActorDetail(
-            actor = fakeActorDetail,
-            navigateToSelectedActor = {}
-        )
-
-    }
-}
+//@Preview
+//@Composable
+//private fun SheetContentActorDetailsLightPreview(){
+//    ActorsTheme(darkTheme = false) {
+//        SheetContentActorDetail(
+//            actor = fakeActorDetail,
+//            navigateToSelectedActor = {}
+//        )
+//
+//
+//    }
+//}
+//@Preview
+//@Composable
+//private fun SheetContentActorDetailsDarkPreview(){
+//    ActorsTheme(darkTheme = true) {
+//        SheetContentActorDetail(
+//            actor = fakeActorDetail,
+//            navigateToSelectedActor = {}
+//        )
+//
+//    }
+//}

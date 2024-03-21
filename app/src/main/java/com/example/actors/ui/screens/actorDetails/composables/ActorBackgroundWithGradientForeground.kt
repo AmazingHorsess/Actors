@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.actors.R
 import com.example.actors.ui.components.LoadNetworkImage
 import com.example.actors.ui.components.verticalGradientScrim
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @Composable
 internal fun ActorBackgroundWithGradientForeground(
@@ -45,7 +45,7 @@ internal fun ActorBackgroundWithGradientForeground(
 @Composable
 @Preview
 fun ActorBackgroundWithGradientForegroundPreview(){
-    ActorsTheme {
+    TmdbTheme {
         ActorBackgroundWithGradientForeground(imageUrl = "testurl")
 //
     }

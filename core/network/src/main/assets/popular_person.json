@@ -1,0 +1,147 @@
+{
+  "page": 1,
+  "results": [
+{
+  "adult": false,
+  "gender": 2,
+  "id": 976,
+  "known_for": [
+    {
+      "adult": false,
+      "backdrop_path": "/ysKahAEPP8h6MInuLjr0xuZOTjh.jpg",
+      "genre_ids": [
+        80,
+        35
+      ],
+      "id": 107,
+      "media_type": "movie",
+      "original_language": "en",
+      "original_title": "Snatch",
+      "overview": "Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond.",
+      "poster_path": "/56mOJth6DJ6JhgoE2jtpilVqJO.jpg",
+      "release_date": "2000-09-01",
+      "title": "Snatch",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 7985
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2uSCHUsmzb6KkQPFSxBQ7bgfJLE.jpg",
+      "genre_ids": [
+        28,
+        878,
+        27
+      ],
+      "id": 345940,
+      "media_type": "movie",
+      "original_language": "en",
+      "original_title": "The Meg",
+      "overview": "A deep sea submersible pilot revisits his past fears in the Mariana Trench, and accidentally unleashes the seventy foot ancestor of the Great White Shark believed to be extinct.",
+      "poster_path": "/xqECHNvzbDL5I3iiOVUkVPJMSbc.jpg",
+      "release_date": "2018-08-09",
+      "title": "The Meg",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 6367
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jzdnhRhG0dsuYorwvSqPqqnM1cV.jpg",
+      "genre_ids": [
+        28,
+        80,
+        53
+      ],
+      "id": 337339,
+      "media_type": "movie",
+      "original_language": "en",
+      "original_title": "The Fate of the Furious",
+      "overview": "When a mysterious woman seduces Dom into the world of crime and a betrayal of those closest to him, the crew face trials that will test them as never before.",
+      "poster_path": "/dImWM7GJqryWJO9LHa3XQ8DD5NH.jpg",
+      "release_date": "2017-04-12",
+      "title": "The Fate of the Furious",
+      "video": false,
+      "vote_average": 6.9,
+      "vote_count": 9426
+    }
+  ],
+  "known_for_department": "Acting",
+  "name": "Jason Statham",
+  "popularity": 104.266,
+  "profile_path": "/whNwkEQYWLFJA8ij0WyOOAD5xhQ.jpg"
+},
+    {
+      "adult": false,
+      "gender": 1,
+      "id": 224513,
+      "known_for": [
+        {
+          "adult": false,
+          "backdrop_path": "/ilRyazdMJwN05exqhwK4tMKBYZs.jpg",
+          "genre_ids": [
+            878,
+            18
+          ],
+          "id": 335984,
+          "media_type": "movie",
+          "original_language": "en",
+          "original_title": "Blade Runner 2049",
+          "overview": "Thirty years after the events of the first film, a new blade runner, LAPD Officer K, unearths a long-buried secret that has the potential to plunge what's left of society into chaos. K's discovery leads him on a quest to find Rick Deckard, a former LAPD blade runner who has been missing for 30 years.",
+          "poster_path": "/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
+          "release_date": "2017-10-04",
+          "title": "Blade Runner 2049",
+          "video": false,
+          "vote_average": 7.5,
+          "vote_count": 11771
+        },
+        {
+          "adult": false,
+          "backdrop_path": "/4HWAQu28e2yaWrtupFPGFkdNU7V.jpg",
+          "genre_ids": [
+            35,
+            80,
+            9648
+          ],
+          "id": 546554,
+          "media_type": "movie",
+          "original_language": "en",
+          "original_title": "Knives Out",
+          "overview": "When renowned crime novelist Harlan Thrombey is found dead at his estate just after his 85th birthday, the inquisitive and debonair Detective Benoit Blanc is mysteriously enlisted to investigate. From Harlan's dysfunctional family to his devoted staff, Blanc sifts through a web of red herrings and self-serving lies to uncover the truth behind Harlan's untimely death.",
+          "poster_path": "/pThyQovXQrw2m0s9x82twj48Jq4.jpg",
+          "release_date": "2019-11-27",
+          "title": "Knives Out",
+          "video": false,
+          "vote_average": 7.9,
+          "vote_count": 10631
+        },
+        {
+          "adult": false,
+          "backdrop_path": "/3Mnbw4gOYz5BNZB9PhZ2cyBSQum.jpg",
+          "genre_ids": [
+            35,
+            80,
+            18
+          ],
+          "id": 308266,
+          "media_type": "movie",
+          "original_language": "en",
+          "original_title": "War Dogs",
+          "overview": "Based on the true story of two young men, David Packouz and Efraim Diveroli, who won a $300 million contract from the Pentagon to arm America's allies in Afghanistan.",
+          "poster_path": "/uH9qGH5XS1iZXCSb3tgu40dxQoh.jpg",
+          "release_date": "2016-08-17",
+          "title": "War Dogs",
+          "video": false,
+          "vote_average": 6.9,
+          "vote_count": 4324
+        }
+      ],
+      "known_for_department": "Acting",
+      "name": "Ana de Armas",
+      "popularity": 343.33,
+      "profile_path": "/3vxvsmYLTf4jnr163SUlBIw51ee.jpg"
+    }
+  ],
+  "total_pages": 500,
+  "total_results": 10000
+}

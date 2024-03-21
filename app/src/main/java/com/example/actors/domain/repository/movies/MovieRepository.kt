@@ -8,6 +8,7 @@ import com.example.actors.data.model.MovieDetail
 import com.example.actors.data.model.MovieProvider
 import com.example.actors.data.model.PagedResponse
 import com.example.actors.data.model.Trailer
+import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
 
@@ -15,13 +16,15 @@ interface MovieRepository {
 
     suspend fun getSelectedMovieData(movieId:Int): MovieDetail
 
+    suspend fun getUpcomingMovie(): List<Movie>
+
     suspend fun getSimilarMoviesByIdData(movieId:Int) : List<Movie>
 
     suspend fun getRecommendedMoviesByIdData(movieId: Int): List<Movie>
 
     suspend fun getMovieCastByIdData(movieId: Int): List<Cast>
 
-    fun getAllFavoriteMovies(): LiveData<List<FavoriteMovie>>
+    fun getAllFavoriteMovies(): Flow<List<FavoriteMovie>>
 
     fun isFavoriteMovie(movieId: Int): LiveData<Int>
 

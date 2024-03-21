@@ -21,17 +21,13 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SheetState
-import androidx.compose.material3.SheetValue
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberModalBottomSheetState
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -40,7 +36,7 @@ import com.example.actors.R
 import com.example.actors.data.model.HomeOptionItems
 import com.example.actors.ui.components.ModalBottomSheetLayout.ModalBottomSheetState
 import com.example.actors.ui.components.ModalBottomSheetLayout.ModalBottomSheetValue
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 
 import kotlinx.coroutines.CoroutineScope
@@ -159,7 +155,7 @@ private fun ItemOptionRow(
 @Preview
 @Composable
 private fun OptionsModalSheetContentLightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         OptionsModalSheetContent(
             modalSheetSheet = ModalBottomSheetState(ModalBottomSheetValue.Expanded),
             navigateToFavorite = {},
@@ -175,7 +171,7 @@ private fun OptionsModalSheetContentLightPreview() {
 @Preview
 @Composable
 private fun OptionsModalSheetContentDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         OptionsModalSheetContent(
             modalSheetSheet = ModalBottomSheetState(ModalBottomSheetValue.Expanded),
             navigateToFavorite = {},

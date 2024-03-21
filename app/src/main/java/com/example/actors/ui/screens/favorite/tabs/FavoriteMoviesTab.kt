@@ -1,14 +1,11 @@
 package com.example.actors.ui.screens.favorite.tabs
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -16,9 +13,6 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.pager.PageSize
-import androidx.compose.foundation.pager.VerticalPager
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -27,24 +21,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.actors.R
-import com.example.actors.data.datasource.fake.fakeFavoriteActorsList
 import com.example.actors.data.datasource.fake.fakeFavoriteMovieList
-import com.example.actors.data.datasource.fake.fakeMovieList
-import com.example.actors.data.model.FavoriteActor
 import com.example.actors.data.model.FavoriteMovie
-import com.example.actors.ui.components.ImageBackgroundThemeGenerator
 import com.example.actors.ui.components.LoadNetworkImage
-import com.example.actors.ui.components.verticalGradientScrim
 import com.example.actors.ui.screens.favorite.NoFavoritesFoundUI
-import com.example.actors.ui.theme.ActorsTheme
-import com.example.actors.utils.getPlaceOfBirth
+import com.example.actors.ui.theme.TmdbTheme
 
 @Composable
 fun FavoriteMoviesTabContent(
@@ -126,7 +113,7 @@ private fun ItemFavoriteMovie(
 @Preview(showBackground = true)
 @Composable
 private fun FavoriteMoviesTabContentLightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         FavoriteMoviesTabContent(
             navigateToSelectedMovie = {},
             favoriteMovies = fakeFavoriteMovieList(),
@@ -138,7 +125,7 @@ private fun FavoriteMoviesTabContentLightPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFF211a18)
 @Composable
 private fun FavoriteMoviesTabContentDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         FavoriteMoviesTabContent(
             navigateToSelectedMovie = {},
             favoriteMovies = fakeFavoriteMovieList(),
@@ -150,7 +137,7 @@ private fun FavoriteMoviesTabContentDarkPreview() {
 @Preview(showBackground = true)
 @Composable
 private fun FavoriteMoviesTabContentNoFavoritesLightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         FavoriteMoviesTabContent(
             navigateToSelectedMovie = {},
             favoriteMovies = emptyList(),
@@ -162,7 +149,7 @@ private fun FavoriteMoviesTabContentNoFavoritesLightPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFF211a18)
 @Composable
 private fun FavoriteMoviesTabContentNoFavoritesDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         FavoriteMoviesTabContent(
             navigateToSelectedMovie = {},
             favoriteMovies = emptyList(),

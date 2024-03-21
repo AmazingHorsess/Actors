@@ -3,19 +3,13 @@ package com.example.actors.ui.screens.actorDetails
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.actors.data.datasource.fake.fakeActorDetail
-import com.example.actors.data.datasource.fake.fakeMovieDetail
-import com.example.actors.data.model.Movie
 import com.example.actors.ui.components.ImageBackgroundThemeGenerator
 import com.example.actors.ui.components.ModalBottomSheetLayout.ModalBottomSheetLayout
 import com.example.actors.ui.components.ShowProgressIndicator
@@ -24,7 +18,6 @@ import com.example.actors.ui.modalSheets.SheetContentMovieDetails
 import com.example.actors.ui.modalSheets.manageBottomSheetState
 import com.example.actors.ui.modalSheets.modalBottomSheetState
 import com.example.actors.ui.screens.movieDetails.composables.FloatingAddToFavoritesButton
-import com.example.actors.ui.theme.ActorsTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,7 +33,7 @@ internal fun ActorDetailsUi(
 
 ) {
     val showFab = rememberSaveable { mutableStateOf(true) }
-    val actorProfileUrl = "${detailUiState.actorData?.profileUrl}"
+    val actorProfileUrl = "${detailUiState.actorData?.profilePath}"
     val modalSheetState = modalBottomSheetState()
     val openActorDetailsBottomSheet = manageBottomSheetState(modalSheetState = modalSheetState)
     ModalBottomSheetLayout(
@@ -66,7 +59,7 @@ internal fun ActorDetailsUi(
                 Column {
                     ActorDetailsTopAppBar(
                         navigateUp = navigateUp,
-                        title = "${detailUiState.actorData?.actorName}"
+                        title = "${detailUiState.actorData?.name}"
                     )
                     // Custom top app bar
 
@@ -101,47 +94,47 @@ internal fun ActorDetailsUi(
 
 
 
-@Preview(showBackground = true, backgroundColor = 0xFF211a18)
-@Composable
-private fun ActorDetailsUIDarkPreview() {
-    ActorsTheme(darkTheme = true) {
-        ActorDetailsUi(
-            detailUiState = ActorDetailsUIState(
-                castList = listOf(Movie(1,"test","test","test")),
-                actorData = fakeActorDetail,
-                isFetchingDetails = false
-            ),
-            sheetUIState = ActorDetailsSheetUIState(fakeMovieDetail),
-            navigateToSelectedMovie = {},
-            isFavoriteMovie = true,
-            navigateUp = {},
-            getSelectedMovieDetails = {},
-            addActorToFavorites = {},
-            removeActorFromFavorites = {}
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun ActorDetailsUILightPreview() {
-    ActorsTheme(darkTheme = false) {
-        ActorDetailsUi(
-            detailUiState = ActorDetailsUIState(
-                castList = listOf(Movie(1,"test","test","test")),
-                actorData = fakeActorDetail,
-                isFetchingDetails = false
-            ),
-            sheetUIState = ActorDetailsSheetUIState(fakeMovieDetail),
-            navigateToSelectedMovie = {},
-            isFavoriteMovie = true,
-            navigateUp = {},
-            getSelectedMovieDetails = {},
-            addActorToFavorites = {},
-            removeActorFromFavorites = {}
-        )
-    }
-}
+//@Preview(showBackground = true, backgroundColor = 0xFF211a18)
+//@Composable
+//private fun ActorDetailsUIDarkPreview() {
+//    ActorsTheme(darkTheme = true) {
+//        ActorDetailsUi(
+//            detailUiState = ActorDetailsUIState(
+//                castList = listOf(Movie(1,"test","test","test")),
+//                actorData = fakeActorDetail,
+//                isFetchingDetails = false
+//            ),
+//            sheetUIState = ActorDetailsSheetUIState(fakeMovieDetail),
+//            navigateToSelectedMovie = {},
+//            isFavoriteMovie = true,
+//            navigateUp = {},
+//            getSelectedMovieDetails = {},
+//            addActorToFavorites = {},
+//            removeActorFromFavorites = {}
+//        )
+//    }
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//private fun ActorDetailsUILightPreview() {
+//    ActorsTheme(darkTheme = false) {
+//        ActorDetailsUi(
+//            detailUiState = ActorDetailsUIState(
+//                castList = listOf(Movie(1,"test","test","test")),
+//                actorData = fakeActorDetail,
+//                isFetchingDetails = false
+//            ),
+//            sheetUIState = ActorDetailsSheetUIState(fakeMovieDetail),
+//            navigateToSelectedMovie = {},
+//            isFavoriteMovie = true,
+//            navigateUp = {},
+//            getSelectedMovieDetails = {},
+//            addActorToFavorites = {},
+//            removeActorFromFavorites = {}
+//        )
+//    }
+//}
 
 
 

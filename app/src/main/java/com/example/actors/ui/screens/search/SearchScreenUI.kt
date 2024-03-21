@@ -7,7 +7,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
@@ -17,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.actors.R
 import com.example.actors.data.datasource.fake.fakeActorsList
 import com.example.actors.ui.components.ShowSearchProgress
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @Composable
 fun SearchScreenUI(
@@ -81,7 +80,7 @@ fun SearchScreenUI(
 @Preview(showBackground = true, backgroundColor = 0xFF211a18)
 @Composable
 private fun SearchScreenUIDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         SearchScreenUI(
             navigateUp = {},
             navigateToSearchBySearchType = {},
@@ -98,7 +97,7 @@ private fun SearchScreenUIDarkPreview() {
 @Preview(showBackground = true)
 @Composable
 private fun SearchScreenUILightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         SearchScreenUI(
             navigateUp = {},
             navigateToSearchBySearchType = {},

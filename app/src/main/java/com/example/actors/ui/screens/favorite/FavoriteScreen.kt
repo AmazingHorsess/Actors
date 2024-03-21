@@ -1,6 +1,7 @@
 package com.example.actors.ui.screens.favorite
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -14,8 +15,8 @@ fun FavoritesScreen(
     navigateToSelectedMovie: (Int) -> Unit,
     navigateToSelectedActor: (Int) -> Unit,
 ) {
-    val favoriteMovies by favoriteViewModel.favoriteMovies.observeAsState(emptyList())
-    val favoriteActors by favoriteViewModel.favoriteActors.observeAsState(emptyList())
+    val favoriteMovies by favoriteViewModel.favoriteMovies.collectAsState(emptyList())
+    val favoriteActors by favoriteViewModel.favoriteActors.collectAsState(emptyList())
 
     val removeFavoriteMovie = { favoriteMovie: FavoriteMovie ->
         favoriteViewModel.removeMovieFromFavorites(favoriteMovie)

@@ -18,7 +18,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -29,8 +28,6 @@ import com.example.actors.ui.components.LoadNetworkImage
 import com.example.actors.ui.components.itemsPaging
 import com.example.actors.ui.screens.home.HomeSheetUIState
 import com.example.actors.ui.screens.home.HomeUIState
-import com.example.actors.ui.theme.ActorsTheme
-import kotlinx.coroutines.flow.emptyFlow
 
 @Composable
 fun MoviesTabContent(
@@ -138,20 +135,20 @@ private fun LazyGridScope.nowPlayingMovies(
         )
     }
 }
-@Preview
-@Composable
-private fun MoviesTabContentPreview() {
-    ActorsTheme {
-        MoviesTabContent(
-            homeUIState = HomeUIState(
-                popularActorList = emptyList(),
-                trendingActorList = emptyList(),
-                isFetchingActors = false,
-                upcomingMoviesList = emptyList(),
-                nowPlayingMoviesList = emptyFlow()
-            ),
-            navigateToSelectedMovie = {},
-            homeSheetUIState = HomeSheetUIState()
-        )
-    }
-}
+//@Preview
+//@Composable
+//private fun MoviesTabContentPreview() {
+//    ActorsTheme {
+//        MoviesTabContent(
+//            homeUIState = HomeUIState(
+//                popularActorList = emptyList(),
+//                trendingActorList = emptyList(),
+//                isFetchingActors = false,
+//                upcomingMoviesList = emptyList(),
+//                nowPlayingMoviesList = emptyFlow()
+//            ),
+//            navigateToSelectedMovie = {},
+//            homeSheetUIState = HomeSheetUIState()
+//        )
+//    }
+//}

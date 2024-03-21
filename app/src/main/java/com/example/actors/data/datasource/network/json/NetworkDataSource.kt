@@ -11,7 +11,11 @@ import com.example.actors.data.model.PagedResponse
 import com.example.actors.data.model.Trailer
 import com.example.actors.utils.NetworkQueryUtils
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.withContext
+
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,10 +26,18 @@ class NetworkDataSource @Inject constructor(
     private val queryUtils: NetworkQueryUtils
     )  {
     /*** @return the result of latest list of all popular actors fetched from the network.*/
-    suspend fun getPopularActorsData(): List<Actor> = withContext(Dispatchers.IO) {
-        val requestUrl = requestUrls.getPopularActorsUrl()
-        val response: String = queryUtils.getResponseFromHttpUrl(requestUrl)
-        jsonData.fetchActorsJsonData(response)
+    suspend fun getPopularActorsData(): Flow<Actor> {
+        withContext(Dispatchers.IO) {
+            val requestUrl = requestUrls.getPopularActorsUrl()
+
+            val response = queryUtils.getResponseFromHttpUrl(requestUrl)
+           val result = jsonData.fetchActorsJsonData(response)
+
+
+        }
+        return emptyFlow()
+
+
     }
 
     /** @return the result of latest list of all trending actors fetched from the network. */

@@ -1,6 +1,7 @@
 package com.example.actors.ui.screens.actorDetails
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -13,7 +14,7 @@ internal fun ActorDetailsScreen(
 ) {
     val detailUIState = viewModel.detailUIState
     val sheetUIState = viewModel.sheetUIState
-    val movieId by viewModel.isFavoriteMovie.observeAsState()
+    val movieId by viewModel.isFavoriteMovie.collectAsState(Int)
 
     ActorDetailsUi(
         detailUiState = detailUIState,

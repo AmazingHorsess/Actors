@@ -30,14 +30,12 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.LifecycleOwner
 import com.example.actors.data.datasource.fake.fakeMovieCastList
 import com.example.actors.data.datasource.fake.fakeMovieDetail
 import com.example.actors.data.datasource.fake.fakeMovieList
 import com.example.actors.data.model.BottomSheetType
 import com.example.actors.data.model.Flatrate
 import com.example.actors.data.model.MovieProvider
-import com.example.actors.data.model.Trailer
 import com.example.actors.ui.animations.LayerRevealImage
 import com.example.actors.ui.components.ErrorTrailerLoadingShowSnackbar
 import com.example.actors.ui.components.ModalBottomSheetLayout.ModalBottomSheetLayout
@@ -46,7 +44,7 @@ import com.example.actors.ui.modalSheets.SheetContentMovieDetails
 import com.example.actors.ui.modalSheets.SheetContentMovieProviders
 import com.example.actors.ui.modalSheets.manageBottomSheetState
 import com.example.actors.ui.modalSheets.modalBottomSheetState
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 import kotlinx.coroutines.Job
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -222,7 +220,7 @@ private fun GetBottomSheetContent(
 @Preview(showBackground = true)
 @Composable
 private fun MovieDetailsUILightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         val bottomSheetTypeState = remember {
             mutableStateOf<BottomSheetType?>(BottomSheetType.MovieDetailBottomSheet)
         }
@@ -261,7 +259,7 @@ private fun MovieDetailsUILightPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFF211a18)
 @Composable
 private fun MovieDetailsUIDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         MovieDetailsContent(
             uiState = MovieDetailsUIState(
                 movieData = fakeMovieDetail,

@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.actors.R
 import com.example.actors.ui.components.LoadNetworkImage
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @Composable
 internal fun ActorProfileRound(
@@ -47,7 +47,7 @@ internal fun ActorProfileRound(
 @Preview
 @Composable
 fun ActorRoundProfilePreview() {
-    ActorsTheme {
+    TmdbTheme {
         ActorProfileRound(profileUrl = "testUrl")
     }
 

@@ -37,7 +37,7 @@ import com.example.actors.ui.screens.movieDetails.composables.MovieDetailOvervie
 import com.example.actors.ui.screens.movieDetails.composables.MovieGenre
 import com.example.actors.ui.screens.movieDetails.composables.MovieTrailerVideoPlayer
 
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 import kotlinx.coroutines.Job
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -130,7 +130,7 @@ fun MovieDetailsContent(
 private fun MovieDetailsContentLight(){
     val showFab = remember{ mutableStateOf(true) }
     val showBottomSheetScaffold = remember{ mutableStateOf(true) }
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         MovieDetailsContent(
             uiState = MovieDetailsUIState(
                 movieData = fakeMovieDetail,
@@ -159,7 +159,7 @@ private fun MovieDetailsContentLight(){
 private fun MovieDetailsContentBlack(){
     val showFab = remember{ mutableStateOf(true) }
     val showBottomSheetScaffold = remember{ mutableStateOf(true) }
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         MovieDetailsContent(
             uiState = MovieDetailsUIState(
                 movieData = fakeMovieDetail,

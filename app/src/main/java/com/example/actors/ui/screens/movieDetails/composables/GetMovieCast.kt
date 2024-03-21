@@ -30,10 +30,9 @@ import com.example.actors.data.model.BottomSheetType
 import com.example.actors.data.model.Cast
 import com.example.actors.data.model.Flatrate
 import com.example.actors.data.model.MovieProvider
-import com.example.actors.data.model.Trailer
 import com.example.actors.ui.components.LoadNetworkImage
 import com.example.actors.ui.screens.movieDetails.MovieDetailsUIState
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 import kotlinx.coroutines.Job
 
 @Composable
@@ -112,7 +111,7 @@ private fun ItemCast(
 @Preview(showBackground = true)
 @Composable
 private fun GetMovieCastLightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         GetMovieCast(
             uiState = MovieDetailsUIState(
                 movieData = fakeMovieDetail,
@@ -133,7 +132,7 @@ private fun GetMovieCastLightPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFF211a18)
 @Composable
 private fun GetMovieCastDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         GetMovieCast(
             uiState = MovieDetailsUIState(
                 movieData = fakeMovieDetail,

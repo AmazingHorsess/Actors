@@ -8,10 +8,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.actors.data.repository.actor.ActorRepositoryImpl
 import com.example.actors.domain.GetPagedMovies
 import com.example.actors.domain.repository.actor.ActorRepository
-import com.example.actors.domain.repository.movies.MovieTrailerRepository
+import com.example.actors.domain.repository.movies.MovieRepository
 import com.example.actors.ui.screens.search.SearchType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -21,10 +20,12 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val actorRepository: ActorRepository,
+    private val movieRepository: MovieRepository,
     private val getPagedMovies: GetPagedMovies,
 
 
 ) :ViewModel(){
+
     var uiState by mutableStateOf(HomeUIState())
         private set
 
@@ -55,10 +56,10 @@ class HomeViewModel @Inject constructor(
     private suspend fun startFetchingActors(){
         uiState = HomeUIState(isFetchingActors = true)
         uiState = HomeUIState(
-            popularActorList = actorRepository.getPopularActorsData(),
-            trendingActorList = actorRepository.getTrendingActorsData(),
+            popularActorList = actorRepository.popularActorsList(2),
+            trendingActorList = actorRepository.trendingActorsList(2),
             isFetchingActors = false,
-            upcomingMoviesList = actorRepository.getUpcomingMoviesData(),
+            upcomingMoviesList = movieRepository.getUpcomingMovie(),
             nowPlayingMoviesList = getPagedMovies(viewModelScope)
         )
     }

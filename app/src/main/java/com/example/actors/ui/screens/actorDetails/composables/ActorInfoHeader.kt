@@ -17,12 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.actors.R
-import com.example.actors.data.model.ActorDetail
+import com.example.actors.data.datasource.network.retrofit.model.ActorDetailsResponse
 import com.example.actors.ui.animations.borderRevealAnimation
-import com.example.actors.ui.theme.ActorsTheme
 import com.example.actors.utils.calculateAge
 import com.example.actors.utils.getPlaceOfBirth
 import com.example.actors.utils.getPopularity
@@ -35,13 +33,13 @@ import com.example.actors.utils.getPopularity
  */
 @Composable
 internal fun ActorInfoHeader(
-    actorData: ActorDetail?
+    actorData: ActorDetailsResponse?
 ) {
     LazyRow(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center,
     ) {
-        item { AgeInfo(actorAge = actorData?.dateOfBirth) }
+        item { AgeInfo(actorAge = actorData?.birthday) }
         item { PopularityInfo(popularity = actorData?.popularity) }
         item { CountryInfo(placeOfBirth = actorData?.placeOfBirth) }
     }
@@ -150,20 +148,20 @@ private fun ActorInfoHeaderSubtitle(
     )
 }
 
-@Preview
-@Composable
-private fun ActorInfoHeaderPreview() {
-    ActorsTheme {
-        ActorInfoHeader(
-            actorData = ActorDetail(
-                actorId = 1,
-                actorName = "Kate WinsletKate Winslet",
-                profileUrl = "",
-                biography = "Kate Elizabeth Winslet CBE born 5 October 1975 is an English actress. Known for her work in independent films, particularly period dramas, and for her portrayals of headstrong and complicated women, she has received numerous accolades, including an Academy Award, a Grammy Award, two Primetime Emmy Awards, three BAFTA Awards, and five Golden Globe Awards. Time magazine named Winslet one of the 100 most influential people in the world in 2009 and 2021. She was appointed Commander of the Order of the British Empire (CBE) in 2012.",
-                dateOfBirth = "47",
-                placeOfBirth = "UK",
-                popularity = 52.0
-            )
-        )
-    }
-}
+//@Preview
+//@Composable
+//private fun ActorInfoHeaderPreview() {
+//    ActorsTheme {
+//        ActorInfoHeader(
+//            actorData = ActorDetail(
+//                actorId = 1,
+//                actorName = "Kate WinsletKate Winslet",
+//                profileUrl = "",
+//                biography = "Kate Elizabeth Winslet CBE born 5 October 1975 is an English actress. Known for her work in independent films, particularly period dramas, and for her portrayals of headstrong and complicated women, she has received numerous accolades, including an Academy Award, a Grammy Award, two Primetime Emmy Awards, three BAFTA Awards, and five Golden Globe Awards. Time magazine named Winslet one of the 100 most influential people in the world in 2009 and 2021. She was appointed Commander of the Order of the British Empire (CBE) in 2012.",
+//                dateOfBirth = "47",
+//                placeOfBirth = "UK",
+//                popularity = 52.0
+//            )
+//        )
+//    }
+//}

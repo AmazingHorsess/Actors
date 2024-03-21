@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.actors.data.datasource.fake.fakeActorsList
 import com.example.actors.data.model.Actor
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @Composable
 fun ActorSearchUI(
@@ -68,7 +68,7 @@ private fun ItemSearchActor(
 )
 @Composable
 private fun ActorSearchUIDarkPreview(){
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         ActorSearchUI(
             actorsList = fakeActorsList(),
             navigateToSelectedActor ={},
@@ -82,7 +82,7 @@ private fun ActorSearchUIDarkPreview(){
 )
 @Composable
 private fun ActorSearchUILightPreview(){
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         ActorSearchUI(
             actorsList = fakeActorsList(),
             navigateToSelectedActor ={},

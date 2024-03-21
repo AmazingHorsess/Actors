@@ -11,6 +11,7 @@ import com.example.actors.domain.repository.actor.ActorRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/*
 @Singleton
 class ActorRepositoryImpl @Inject constructor(
     private val stockJsonDataSource: NetworkDataSource,
@@ -25,9 +26,6 @@ class ActorRepositoryImpl @Inject constructor(
         return stockJsonDataSource.getTrendingActorsData()
     }
 
-    override suspend fun getUpcomingMoviesData(): List<Movie> {
-        return stockJsonDataSource.getUpcomingMoviesData()
-    }
 
     override suspend fun getSelectedActorData(actorInt: Int): ActorDetail {
         return stockJsonDataSource.getSelectedActorData(actorInt)
@@ -52,4 +50,4 @@ class ActorRepositoryImpl @Inject constructor(
     override fun getAllFavoriteActors(): LiveData<List<FavoriteActor>> {
         return databaseDataSource.getAllFavoriteActors()
     }
-}
+}*/

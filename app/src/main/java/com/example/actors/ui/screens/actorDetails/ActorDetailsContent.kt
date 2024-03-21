@@ -30,7 +30,7 @@ fun ActorDetailsContent(
     val listState = rememberLazyListState()
 
     Spacer(modifier = Modifier.padding(top = 16.dp))
-    ActorProfileRound(profileUrl = "${actorData?.profileUrl}")
+    ActorProfileRound(profileUrl = "${actorData?.profilePath}")
     Spacer(modifier = Modifier.padding(vertical = 8.dp))
     showFab.value = !listState.isScrollInProgress
     LazyColumn(

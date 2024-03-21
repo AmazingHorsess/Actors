@@ -17,7 +17,7 @@ data class MovieTrackingEntity(
     val progress: Int,
 
     @ColumnInfo(name = "status")
-    val status: MovieStatus,
+    val status: String,
 
     @ColumnInfo(name = "movie_id")
     val movieId:Int,

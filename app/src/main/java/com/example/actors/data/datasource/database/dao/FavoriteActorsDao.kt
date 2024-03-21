@@ -7,6 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.actors.data.datasource.database.entity.FavoriteActorsEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FavoriteActorsDao {
@@ -15,7 +16,7 @@ interface FavoriteActorsDao {
     fun addActorToFavorites(favoriteActorsEntity: FavoriteActorsEntity)
 
     @Query("SELECT * FROM favorite_actors_table")
-    fun getAllFavoriteActors(): LiveData<List<FavoriteActorsEntity>>
+    fun getAllFavoriteActors(): Flow<List<FavoriteActorsEntity>>
 
     @Query("DELETE FROM favorite_actors_table")
     fun deleteAllFavoriteActors()
@@ -24,5 +25,5 @@ interface FavoriteActorsDao {
     fun deleteSelectedFavoriteActor(favoriteActorsEntity: FavoriteActorsEntity)
 
     @Query("SELECT column_actor_id FROM favorite_actors_table WHERE column_actor_id = :actorId")
-    fun checkIfActorIsFavorite(actorId: Int): LiveData<Int>
+    fun checkIfActorIsFavorite(actorId: Int): Flow<Int>
 }

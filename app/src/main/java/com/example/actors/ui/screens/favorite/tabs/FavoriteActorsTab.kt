@@ -34,7 +34,7 @@ import com.example.actors.ui.components.ImageBackgroundThemeGenerator
 import com.example.actors.ui.components.LoadNetworkImage
 import com.example.actors.ui.components.verticalGradientScrim
 import com.example.actors.ui.screens.favorite.NoFavoritesFoundUI
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 import com.example.actors.utils.getPlaceOfBirth
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -154,7 +154,7 @@ private fun ItemFavoriteActor(
 @Preview(showBackground = true)
 @Composable
 private fun FavoriteActorsTabContentPreviewLightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         FavoriteActorsTabContent(
             navigateToSelectedActor = {},
             favoriteActors = fakeFavoriteActorsList(),
@@ -166,7 +166,7 @@ private fun FavoriteActorsTabContentPreviewLightPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFF211a18)
 @Composable
 private fun FavoriteActorsTabContentPreviewDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         FavoriteActorsTabContent(
             navigateToSelectedActor = {},
             favoriteActors = fakeFavoriteActorsList(),
@@ -178,7 +178,7 @@ private fun FavoriteActorsTabContentPreviewDarkPreview() {
 @Preview(showBackground = true)
 @Composable
 private fun FavoriteActorsTabContentNoFavoritesPreviewLightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         FavoriteActorsTabContent(
             navigateToSelectedActor = {},
             favoriteActors = emptyList(),
@@ -190,7 +190,7 @@ private fun FavoriteActorsTabContentNoFavoritesPreviewLightPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFF211a18)
 @Composable
 private fun FavoriteActorsTabContentNoFavoritesPreviewDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         FavoriteActorsTabContent(
             navigateToSelectedActor = {},
             favoriteActors = emptyList(),

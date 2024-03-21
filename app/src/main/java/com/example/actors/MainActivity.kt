@@ -1,26 +1,23 @@
 package com.example.actors
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
-import androidx.navigation.compose.rememberNavController
+import com.example.actors.navigation.TmdbApp
+import com.example.actors.navigation.rememberTmdbAppState
 import com.example.actors.ui.navigation.AppNavigation
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
+import core.data.util.NetworkMonitor
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    lateinit var networkMonitor: NetworkMonitor
+
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge(
 
@@ -28,11 +25,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window,false)
 
+
         setContent {
-            ActorsTheme {
+            TmdbTheme {
+                val appState = rememberTmdbAppState(
+                    networkMonitor = networkMonitor,
+                )
 
 
-                AppNavigation()
+                TmdbApp(appState = appState)
                 // A surface container using the 'background' color from the theme
 
             }

@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.actors.R
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @Composable
 fun MovieDetailTopAppBar(
@@ -70,7 +70,7 @@ fun MovieDetailTopAppBar(
 @Preview(showBackground = true)
 fun MovieDetailTopAppBarConditionalTrueLight(title:String = "test"){
     val showTopBarBackground = remember { mutableStateOf(true) }
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         MovieDetailTopAppBar(
             modifier = Modifier,
             navigateUp = {},
@@ -84,7 +84,7 @@ fun MovieDetailTopAppBarConditionalTrueLight(title:String = "test"){
 @Preview(showBackground = true)
 fun MovieDetailTopAppBarConditionalTrueBlack(title:String = "test"){
     val showTopBarBackground = remember { mutableStateOf(true) }
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         MovieDetailTopAppBar(
             modifier = Modifier,
             navigateUp = {},
@@ -98,7 +98,7 @@ fun MovieDetailTopAppBarConditionalTrueBlack(title:String = "test"){
 @Preview(showBackground = true)
 fun MovieDetailTopAppBarConditionalFalseLight(){
     val showTopBarBackground = remember { mutableStateOf(true) }
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         MovieDetailTopAppBar(
             modifier = Modifier,
             navigateUp = {},
@@ -112,7 +112,7 @@ fun MovieDetailTopAppBarConditionalFalseLight(){
 @Preview(showBackground = true)
 fun MovieDetailTopAppBarConditionalFalseDark(){
     val showTopBarBackground = remember { mutableStateOf(true) }
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         MovieDetailTopAppBar(
             modifier = Modifier,
             navigateUp = {},

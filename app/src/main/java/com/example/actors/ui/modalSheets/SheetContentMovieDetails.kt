@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -32,7 +31,7 @@ import com.example.actors.data.model.MovieDetail
 import com.example.actors.ui.components.CircularSeparator
 import com.example.actors.ui.components.LoadNetworkImage
 import com.example.actors.ui.screens.movieDetails.composables.MovieGenre
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 import com.example.actors.utils.getMovieRuntimeFormatted
 
 @Composable
@@ -189,7 +188,7 @@ private fun MovieOverviewText(
 @Preview(showBackground = true)
 @Composable
 private fun SheetContentMovieDetailsLightPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         SheetContentMovieDetails(
             movie = fakeMovieDetail,
             navigateToSelectedMovie = {}
@@ -200,7 +199,7 @@ private fun SheetContentMovieDetailsLightPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFF211a18)
 @Composable
 private fun SheetContentMovieDetailsDarkPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         SheetContentMovieDetails(
             movie = fakeMovieDetail,
             navigateToSelectedMovie = {}

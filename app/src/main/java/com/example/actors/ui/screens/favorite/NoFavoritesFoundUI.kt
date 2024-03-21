@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -17,7 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.actors.R
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @Composable
 fun NoFavoritesFoundUI(){
@@ -51,14 +50,14 @@ fun NoFavoritesFoundUI(){
 @Preview
 @Composable
 private fun NoFavoritesFoundUIDark(){
-    ActorsTheme(darkTheme = true){
+    TmdbTheme(darkTheme = true){
         NoFavoritesFoundUI()
     }
 }
 @Preview
 @Composable
 private fun NoFavoritesFoundUILight(){
-    ActorsTheme(darkTheme = false){
+    TmdbTheme(darkTheme = false){
         NoFavoritesFoundUI()
     }
 }

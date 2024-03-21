@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -27,7 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.actors.R
 import com.example.actors.ui.screens.search.SearchType
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -101,7 +100,7 @@ private fun HomeTopAppBarContent(
 @Preview
 @Composable
 private fun SearchBarLightPreview() {
-    ActorsTheme(darkTheme = true) {
+    TmdbTheme(darkTheme = true) {
         HomeTopAppBarContent(
             navigateToSearch = { },
             searchType = SearchType.ACTORS
@@ -111,7 +110,7 @@ private fun SearchBarLightPreview() {
 @Preview
 @Composable
 private fun SearchBarDarkPreview() {
-    ActorsTheme(darkTheme = false) {
+    TmdbTheme(darkTheme = false) {
         HomeTopAppBarContent(
             navigateToSearch = { },
             searchType = SearchType.ACTORS

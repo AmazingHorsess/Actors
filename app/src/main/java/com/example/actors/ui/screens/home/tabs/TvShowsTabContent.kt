@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.actors.R
 import com.example.actors.ui.screens.home.HomeSheetUIState
-import com.example.actors.ui.theme.ActorsTheme
+import com.example.actors.ui.theme.TmdbTheme
 
 
 @Composable
@@ -53,7 +53,7 @@ fun TvShowsTabContent(
 @Preview
 @Composable
 private fun HomeScreenUIPreview() {
-    ActorsTheme {
+    TmdbTheme {
         TvShowsTabContent(
             homeSheetUIState = HomeSheetUIState()
         )

@@ -2,6 +2,7 @@ package com.example.actors.domain
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.actors.data.datasource.network.retrofit.model.ActorItem
 import com.example.actors.data.model.Movie
 import com.example.actors.data.model.PagedResponse
 import com.example.actors.domain.repository.movies.MovieRepository
@@ -40,4 +41,5 @@ class MoviesPagingSource @Inject constructor(
             LoadResult.Error(exception)
         }
     }
+
 }
